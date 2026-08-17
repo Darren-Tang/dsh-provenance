@@ -1,0 +1,16 @@
+# Overlay for local development.
+#
+# Usage from a source checkout of deepseek-harness:
+#   pnpm dsh web --patch /absolute/path/to/dsh-provenance/cordis.yml
+#
+# `name` MUST be an absolute path. A patch file only contributes configuration;
+# it does not change the profile directory the loader resolves modules against,
+# which is why a relative path will not be found.
+#
+# Build first (`npm run build`), since this points at compiled output.
+- insert:
+    - id: provenance
+      name: '/ABSOLUTE/PATH/TO/dsh-provenance/lib/index.js'
+      config:
+        guardInstalls: true
+        skipDiffByDefault: false

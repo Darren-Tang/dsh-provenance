@@ -1,0 +1,73 @@
+{
+  "name": "dsh-provenance",
+  "version": "0.1.0",
+  "description": "Supply-chain provenance checks for DeepSeek Harness plugins: verify what you install actually matches the source you read. Never executes the audited package.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "supply-chain",
+    "supply-chain-security",
+    "provenance",
+    "security",
+    "sigstore",
+    "integrity",
+    "npm-provenance"
+  ],
+  "license": "MIT",
+  "author": "Darren Tang",
+  "homepage": "https://github.com/Darren-Tang/dsh-provenance#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darren-Tang/dsh-provenance.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Darren-Tang/dsh-provenance/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "bin": {
+    "dsh-provenance": "./lib/cli.js"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:core": "tsc -p tsconfig.core.json",
+    "typecheck": "tsc -p tsconfig.core.json --noEmit",
+    "typecheck:all": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build:core && node --test test/*.test.mjs",
+    "prepack": "npm run build"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.0-rc.7 || ^4",
+    "@deepseek-ai/dsh-tools": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.7",
+    "@types/node": "^22.15.0",
+    "typescript": "^5.7.0"
+  }
+}
