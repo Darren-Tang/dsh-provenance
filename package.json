@@ -33,7 +33,7 @@
     }
   },
   "bin": {
-    "dsh-provenance": "./lib/cli.js"
+    "dsh-provenance": "lib/cli.js"
   },
   "files": [
     "lib",
