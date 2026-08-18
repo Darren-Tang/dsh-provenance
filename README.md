@@ -6,6 +6,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/dsh-provenance)](https://www.npmjs.com/package/dsh-provenance)
 [![license](https://img.shields.io/npm/l/dsh-provenance)](https://github.com/Darren-Tang/dsh-provenance/blob/main/LICENSE)
 [![dsh-plugin](https://img.shields.io/badge/dsh-plugin-DeepSeek%20Harness-4f46e5)](https://github.com/deepseek-ai/deepseek-harness)
+[![CI](https://github.com/Darren-Tang/dsh-provenance/actions/workflows/ci.yml/badge.svg)](https://github.com/Darren-Tang/dsh-provenance/actions/workflows/ci.yml)
 
 **The source you read on GitHub is not necessarily the package you install.**
 
@@ -104,11 +105,35 @@ which can still be traced upstream, and which shipped install hooks that already
 
 ### CI
 
+As a gate in your own pipeline:
+
 ```sh
 dsh-provenance preflight some-plugin@1.2.3 --strict
 ```
 
 Exit codes: `0` ok/notice, `1` review (with `--strict`), `2` block.
+
+A full example — re-check the sources daily, because a moving git reference can change
+under the same name (see *Why pinning matters* above):
+
+```yaml
+# .github/workflows/preflight.yml
+name: preflight plugins
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 3 * * *"   # daily: upstream branches/tags can move
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm install -g dsh-provenance
+      - run: dsh-provenance preflight some-plugin@1.2.3 --strict
+      - run: dsh-provenance preflight github:owner/repo#<sha> --strict
+```
 
 ---
 

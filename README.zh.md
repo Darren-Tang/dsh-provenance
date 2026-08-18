@@ -6,6 +6,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/dsh-provenance)](https://www.npmjs.com/package/dsh-provenance)
 [![license](https://img.shields.io/npm/l/dsh-provenance)](https://github.com/Darren-Tang/dsh-provenance/blob/main/LICENSE)
 [![dsh-plugin](https://img.shields.io/badge/dsh-plugin-DeepSeek%20Harness-4f46e5)](https://github.com/deepseek-ai/deepseek-harness)
+[![CI](https://github.com/Darren-Tang/dsh-provenance/actions/workflows/ci.yml/badge.svg)](https://github.com/Darren-Tang/dsh-provenance/actions/workflows/ci.yml)
 
 **你在 GitHub 上看到的源码，不一定是你安装的那个包。**
 
@@ -93,11 +94,34 @@ dsh-provenance verify --profile web
 
 ### CI
 
+作为你自己流水线里的一道关卡：
+
 ```sh
 dsh-provenance preflight some-plugin@1.2.3 --strict
 ```
 
 退出码：`0` ok/notice，`1` review（需要 `--strict`），`2` block。
+
+完整示例 —— 每天重查一次来源，因为浮动的 git 引用可能在同一个名字下发生变化（见上文"为什么锚定更重要"）：
+
+```yaml
+# .github/workflows/preflight.yml
+name: preflight plugins
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 3 * * *"   # 每天一次：上游分支/tag 可能被移动
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm install -g dsh-provenance
+      - run: dsh-provenance preflight some-plugin@1.2.3 --strict
+      - run: dsh-provenance preflight github:owner/repo#<sha> --strict
+```
 
 ---
 
