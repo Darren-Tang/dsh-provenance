@@ -2,6 +2,11 @@
 
 [English](README.md) | [中文](README.zh.md)
 
+[![npm version](https://img.shields.io/npm/v/dsh-provenance)](https://www.npmjs.com/package/dsh-provenance)
+[![npm downloads](https://img.shields.io/npm/dm/dsh-provenance)](https://www.npmjs.com/package/dsh-provenance)
+[![license](https://img.shields.io/npm/l/dsh-provenance)](https://github.com/Darren-Tang/dsh-provenance/blob/main/LICENSE)
+[![dsh-plugin](https://img.shields.io/badge/dsh-plugin-DeepSeek%20Harness-4f46e5)](https://github.com/deepseek-ai/deepseek-harness)
+
 **The source you read on GitHub is not necessarily the package you install.**
 
 A supply-chain preflight for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugins.
