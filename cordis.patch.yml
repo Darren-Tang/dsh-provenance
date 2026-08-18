@@ -1,0 +1,13 @@
+# Bundle patch layer for published installs.
+#
+# Unlike `cordis.yml` (a development overlay whose `name` is an absolute path
+# and which is mounted via `--patch`), this file is the bundle's own patch
+# layer. It is referenced by `dsh.bundle.patch` in package.json and resolved by
+# the loader from the installed package, so `name` here is the package name,
+# not a filesystem path.
+- insert:
+    - id: provenance
+      name: dsh-provenance
+      config:
+        guardInstalls: true
+        skipDiffByDefault: false
