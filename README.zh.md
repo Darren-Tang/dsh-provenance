@@ -12,7 +12,7 @@
 面向 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 插件的供应链装前预检工具。
 它回答了一个当前生态里所有扫描器都没问过的问题。
 
-![dsh-provenance 演示](assets/demo.png)
+![dsh-provenance 演示](assets/demo.gif)
 
 现有的插件扫描器读的是已经落在你磁盘上的文件，问的是"这段代码有没有干坏事"。这个问题有用，但它不是第一个该问的问题。第一个问题是：
 
@@ -127,6 +127,7 @@ afterwards. Call provenance_preflight with source="evil-plugin" first, then retr
 - **无法验证构建产物。** `lib/`、`dist/` 和被压缩过的文件永远被标记为 `unverifiable`，绝不会标成 `match`。要验证它们需要复现构建过程。
 - **一份"干净"的报告不代表安全。** 它只代表这些规则没有发现问题。
 - **这不是代码扫描器。** 它检查的是*代码从哪来*，不是代码*做了什么*。请搭配行为扫描器一起用，两者回答的是不同问题。
+- **这不是运行时账本。** 它不去观察或记录插件安装之后做了什么——那是"审计日志"意义上的 provenance，不是"供应链"意义上的 provenance。本工具在安装*之前*运行并拒绝，而不是在事后运行并记录。
 
 ### 它拒绝出现的那种失败模式
 

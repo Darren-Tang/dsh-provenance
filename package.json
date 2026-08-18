@@ -1,7 +1,7 @@
 {
   "name": "dsh-provenance",
   "version": "0.1.0",
-  "description": "Supply-chain provenance checks for DeepSeek Harness plugins: verify what you install actually matches the source you read. Never executes the audited package.",
+  "description": "Pre-install supply-chain provenance checks for DeepSeek Harness plugins: verify the tarball you're about to install matches the source you read, before any code runs. Never executes the audited package.",
   "keywords": [
     "dsh",
     "dsh-plugin",

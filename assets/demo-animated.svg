@@ -48,7 +48,7 @@
       <animate attributeName="opacity" from="0" to="1" begin="4.9s" dur="0.3s" fill="freeze"/></text>
 
     <!-- blinking cursor -->
-    <rect x="322" y="332" width="9" height="16" fill="#c9d1d9" opacity="0">
+    <rect x="406" y="332" width="9" height="16" fill="#c9d1d9" opacity="0">
       <animate attributeName="opacity" from="0" to="1" begin="5.2s" dur="0.01s" fill="freeze"/>
       <animate attributeName="opacity" values="1;1;0;0" dur="1s" begin="5.2s" repeatCount="indefinite"/>
     </rect>

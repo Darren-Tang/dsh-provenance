@@ -12,7 +12,7 @@
 A supply-chain preflight for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugins.
 It answers a question no other scanner in this ecosystem asks.
 
-![dsh-provenance demo](assets/demo.png)
+![dsh-provenance demo](assets/demo.gif)
 
 Existing plugin scanners read the files already on your disk and ask *"does this code do
 something bad?"*. That is a useful question, but it comes second. The first question is:
@@ -148,6 +148,9 @@ Stated plainly, because overstating scope is how security tooling does harm:
 - **A clean report is not proof of safety.** It means these rules found nothing.
 - **It is not a code scanner.** It checks *where code came from*, not what it does. Pair it with a
   behavioural scanner; the two answer different questions.
+- **It is not a runtime ledger.** It does not observe or record what a plugin does after install.
+  That is provenance in the audit-log sense, not provenance in the supply-chain sense. This tool
+  runs *before* install and refuses; it does not run after and record.
 
 ### The failure mode it refuses to have
 
