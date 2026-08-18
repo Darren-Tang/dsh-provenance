@@ -4,3 +4,7 @@ lib/
 .DS_Store
 .env
 *.log
+
+# Local promotion/notes (not part of the published package)
+DISCUSSION_POST.md
+PROMOTION_PLAYBOOK.md
