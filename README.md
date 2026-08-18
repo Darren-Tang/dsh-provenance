@@ -1,9 +1,13 @@
 # dsh-provenance
 
+[English](README.md) | [中文](README.zh.md)
+
 **The source you read on GitHub is not necessarily the package you install.**
 
 A supply-chain preflight for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugins.
 It answers a question no other scanner in this ecosystem asks.
+
+![dsh-provenance demo](assets/demo.png)
 
 Existing plugin scanners read the files already on your disk and ask *"does this code do
 something bad?"*. That is a useful question, but it comes second. The first question is:

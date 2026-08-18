@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480" font-family="'SF Mono','JetBrains Mono',Menlo,Consolas,monospace" font-size="15">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#0a0d12"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="480" rx="12" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="899" height="479" rx="12" fill="none" stroke="#1f2630"/>
+  <rect x="1" y="1" width="898" height="38" rx="12" fill="#141a22"/>
+  <rect x="1" y="26" width="898" height="13" fill="#141a22"/>
+  <circle cx="24" cy="20" r="6" fill="#ff5f57"/><circle cx="45" cy="20" r="6" fill="#febc2e"/><circle cx="66" cy="20" r="6" fill="#28c840"/>
+  <text x="450" y="25" text-anchor="middle" fill="#6b7684" font-size="12">dsh-provenance</text>
+
+  <g transform="translate(22,68)">
+    <!-- prompt + command, appears immediately -->
+    <text x="0" y="0"><tspan fill="#3fb950">❯</tspan> <tspan fill="#c9d1d9">dsh-provenance preflight </tspan><tspan fill="#d2a8ff">sigstore@5.0.0</tspan></text>
+
+    <!-- results reveal line by line -->
+    <text x="0" y="34" opacity="0"><tspan fill="#58a6ff" font-weight="bold">NOTICE</tspan><tspan fill="#8b949e"> — sigstore@5.0.0</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="0.6s" dur="0.25s" fill="freeze"/></text>
+    <text x="0" y="60" opacity="0"><tspan fill="#6e7681">tarball integrity   </tspan><tspan fill="#3fb950">match (sha512)</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="1.0s" dur="0.25s" fill="freeze"/></text>
+    <text x="0" y="82" opacity="0"><tspan fill="#6e7681">provenance          </tspan><tspan fill="#3fb950">SLSA</tspan><tspan fill="#8b949e"> → commit </tspan><tspan fill="#d2a8ff">7d2900ec</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="1.4s" dur="0.25s" fill="freeze"/></text>
+
+    <text x="0" y="118" opacity="0" fill="#c9d1d9">Published artifact vs repository @ 7d2900ec (provenance)
+      <animate attributeName="opacity" from="0" to="1" begin="1.9s" dur="0.25s" fill="freeze"/></text>
+    <text x="0" y="140" opacity="0"><tspan fill="#3fb950">✔ match        1</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="2.2s" dur="0.2s" fill="freeze"/></text>
+    <text x="0" y="160" opacity="0"><tspan fill="#6e7681">  mismatch     0        npm-only     0</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="2.4s" dur="0.2s" fill="freeze"/></text>
+    <text x="0" y="182" opacity="0"><tspan fill="#d29922">◐ unverifiable 8</tspan><tspan fill="#6e7681">   build output — cannot be verified</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="2.6s" dur="0.2s" fill="freeze"/></text>
+
+    <!-- the punchline -->
+    <text x="0" y="216" opacity="0"><tspan fill="#d29922" font-weight="bold">→ Verified 1 of 9 files.</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="3.2s" dur="0.3s" fill="freeze"/></text>
+    <text x="0" y="238" opacity="0"><tspan fill="#8b949e">  "0 mismatch" is NOT a clean bill of health — most scanners</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="3.5s" dur="0.3s" fill="freeze"/></text>
+    <text x="0" y="258" opacity="0"><tspan fill="#8b949e">  would round it up. This one refuses to.</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="3.7s" dur="0.3s" fill="freeze"/></text>
+
+    <!-- safety strip -->
+    <text x="0" y="300" opacity="0"><tspan fill="#3fb950">✔</tspan><tspan fill="#8b949e"> never executes the package · never writes to disk · egress allowlisted</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="4.3s" dur="0.3s" fill="freeze"/></text>
+
+    <text x="0" y="344" opacity="0"><tspan fill="#3fb950">❯</tspan> <tspan fill="#c9d1d9">dsh plugin --profile web add </tspan><tspan fill="#d2a8ff">dsh-provenance</tspan>
+      <animate attributeName="opacity" from="0" to="1" begin="4.9s" dur="0.3s" fill="freeze"/></text>
+
+    <!-- blinking cursor -->
+    <rect x="322" y="332" width="9" height="16" fill="#c9d1d9" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="5.2s" dur="0.01s" fill="freeze"/>
+      <animate attributeName="opacity" values="1;1;0;0" dur="1s" begin="5.2s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- hold, then loop -->
+    <rect x="-22" y="-68" width="900" height="480" fill="url(#bg)" opacity="0">
+      <animate attributeName="opacity" values="0;0;1" keyTimes="0;0.92;1" dur="8s" begin="0s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

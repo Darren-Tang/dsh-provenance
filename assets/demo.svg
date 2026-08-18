@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" font-family="'SF Mono','JetBrains Mono','Cascadia Code',Menlo,Consolas,monospace" font-size="14">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#0a0d12"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.1" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="960" height="720" rx="12" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="959" height="719" rx="12" fill="none" stroke="#1f2630" stroke-width="1"/>
+
+  <!-- title bar -->
+  <rect x="1" y="1" width="958" height="40" rx="12" fill="#141a22"/>
+  <rect x="1" y="28" width="958" height="14" fill="#141a22"/>
+  <circle cx="26" cy="21" r="6" fill="#ff5f57"/>
+  <circle cx="48" cy="21" r="6" fill="#febc2e"/>
+  <circle cx="70" cy="21" r="6" fill="#28c840"/>
+  <text x="480" y="26" text-anchor="middle" fill="#6b7684" font-size="13">dsh-provenance — preflight before you install</text>
+
+  <!-- content -->
+  <g transform="translate(24,70)">
+    <!-- ===== scenario 1: clean, provenance-anchored ===== -->
+    <text x="0" y="0" fill="#7d8590"># is the tarball the same as the source you reviewed?</text>
+
+    <text x="0" y="26"><tspan fill="#3fb950">❯</tspan> <tspan fill="#c9d1d9">dsh-provenance preflight </tspan><tspan fill="#d2a8ff">sigstore@5.0.0</tspan></text>
+
+    <text x="0" y="52"><tspan fill="#58a6ff" font-weight="bold" filter="url(#glow)">NOTICE</tspan><tspan fill="#8b949e"> — sigstore@5.0.0</tspan></text>
+    <text x="0" y="74"><tspan fill="#6e7681">tarball integrity   </tspan><tspan fill="#3fb950">match (sha512)</tspan></text>
+    <text x="0" y="94"><tspan fill="#6e7681">provenance          </tspan><tspan fill="#3fb950">SLSA</tspan><tspan fill="#8b949e"> → commit </tspan><tspan fill="#d2a8ff">7d2900ec</tspan></text>
+
+    <text x="0" y="120" fill="#c9d1d9">Published artifact vs repository @ <tspan fill="#d2a8ff">7d2900ec</tspan> (provenance)</text>
+    <text x="0" y="142"><tspan fill="#3fb950">✔ match        1</tspan><tspan fill="#6e7681">   identical bytes upstream</tspan></text>
+    <text x="0" y="162"><tspan fill="#6e7681">  mismatch     0</tspan></text>
+    <text x="0" y="182"><tspan fill="#6e7681">  npm-only     0</tspan></text>
+    <text x="0" y="202"><tspan fill="#d29922">◐ unverifiable 8</tspan><tspan fill="#6e7681">   build output — cannot be verified</tspan></text>
+    <text x="0" y="226"><tspan fill="#d29922">→ Verified 1 of 9 files.</tspan><tspan fill="#8b949e"> "0 mismatch" is NOT a clean bill of health.</tspan></text>
+
+    <line x1="0" y1="250" x2="912" y2="250" stroke="#21262d" stroke-width="1"/>
+
+    <!-- ===== scenario 2: floating git ref -> REVIEW ===== -->
+    <text x="0" y="278" fill="#7d8590"># the case nobody checks: a branch can be rewritten under the same name</text>
+
+    <text x="0" y="304"><tspan fill="#3fb950">❯</tspan> <tspan fill="#c9d1d9">dsh-provenance preflight </tspan><tspan fill="#d2a8ff">github:owner/repo</tspan></text>
+
+    <text x="0" y="330"><tspan fill="#d29922" font-weight="bold" filter="url(#glow)">REVIEW</tspan><tspan fill="#8b949e"> — github:owner/repo</tspan></text>
+    <text x="0" y="352" fill="#c9d1d9">Read the source before installing.</text>
+    <text x="0" y="376"><tspan fill="#d29922">[REVIEW] </tspan><tspan fill="#c9d1d9">Install source is a moving git reference</tspan></text>
+    <text x="0" y="396"><tspan fill="#6e7681">  no ref given; resolves to the default branch,</tspan></text>
+    <text x="0" y="414"><tspan fill="#6e7681">  whose contents can change at any time</tspan></text>
+
+    <line x1="0" y1="438" x2="912" y2="438" stroke="#21262d" stroke-width="1"/>
+
+    <!-- ===== safety strip ===== -->
+    <text x="0" y="468" fill="#7d8590"># how it stays safe while auditing hostile packages</text>
+    <text x="0" y="494"><tspan fill="#3fb950">✔</tspan><tspan fill="#8b949e"> never executes the audited package</tspan></text>
+    <text x="0" y="514"><tspan fill="#3fb950">✔</tspan><tspan fill="#8b949e"> never writes it to disk — tar.gz parsed in memory</tspan></text>
+    <text x="0" y="534"><tspan fill="#3fb950">✔</tspan><tspan fill="#8b949e"> egress locked to registry.npmjs.org / codeload.github.com / api.github.com</tspan></text>
+    <text x="0" y="554"><tspan fill="#3fb950">✔</tspan><tspan fill="#8b949e"> zero runtime dependencies</tspan></text>
+
+    <!-- footer -->
+    <text x="0" y="600"><tspan fill="#3fb950">❯</tspan> <tspan fill="#c9d1d9">dsh plugin --profile web add </tspan><tspan fill="#d2a8ff">dsh-provenance</tspan><tspan fill="#484f58"> _</tspan></text>
+  </g>
+</svg>

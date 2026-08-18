@@ -1,0 +1,9 @@
+# Assets are for the GitHub README only; they should not bloat the npm tarball.
+# The npm package contents are governed by the "files" field in package.json,
+# but keep this explicit so demo images never ship to registry consumers.
+assets/
+src/
+test/
+tsconfig*.json
+cordis.yml
+.gitignore
