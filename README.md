@@ -13,7 +13,9 @@
 A supply-chain preflight for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugins.
 It answers a question no other scanner in this ecosystem asks.
 
-![dsh-provenance demo](assets/demo.gif)
+![dsh-provenance demo](assets/demo.png)
+
+![dsh-provenance demo (animated)](assets/demo.gif)
 
 Existing plugin scanners read the files already on your disk and ask *"does this code do
 something bad?"*. That is a useful question, but it comes second. The first question is:

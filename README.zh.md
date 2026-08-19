@@ -13,7 +13,9 @@
 面向 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 插件的供应链装前预检工具。
 它回答了一个当前生态里所有扫描器都没问过的问题。
 
-![dsh-provenance 演示](assets/demo.gif)
+![dsh-provenance 演示](assets/demo.png)
+
+![dsh-provenance 演示（动图）](assets/demo.gif)
 
 现有的插件扫描器读的是已经落在你磁盘上的文件，问的是"这段代码有没有干坏事"。这个问题有用，但它不是第一个该问的问题。第一个问题是：
 
